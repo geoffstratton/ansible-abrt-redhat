@@ -1,0 +1,7 @@
+---
+abrt_rhel_versions: ["7", "8"]
+
+abrt_process:
+  - abrtd
+  - abrt-ccpp
+  - abrt-oops

@@ -1,0 +1,5 @@
+---
+- name: 'Configure abrt'
+  include_tasks: abrt.yml
+  tags:
+    - abrt
