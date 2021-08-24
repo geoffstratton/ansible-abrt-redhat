@@ -32,6 +32,11 @@ provisioner:
   name: ansible
 verifier:
   name: ansible
+#Molecule 2-style verification
+#verifier:
+  #name: testinfra
+  #lint:
+  #  name: flake8
 lint: |
   set -e
   yamllint .
@@ -39,38 +44,38 @@ lint: |
   flake8
 scenario:
   create_sequence:
-    # - dependency
+    - dependency
     - create
-    # - prepare
+    - prepare
   check_sequence:
-    # - dependency
+    - dependency
     - cleanup
     - destroy
     - create
-    # - prepare
+    - prepare
     - converge
     - check
     - destroy
   converge_sequence:
-    # - dependency
+    - dependency
     - create
-    # - prepare
+    - prepare
     - converge
   destroy_sequence:
-    # - dependency
+    - dependency
     - cleanup
     - destroy
   test_sequence:
-    # - dependency
+    - dependency
     - lint
     - cleanup
     - destroy
     - syntax
     - create
-    # - prepare
+    - prepare
     - converge
     - idempotence
-    # - side_effect
+    - side_effect
     - verify
     - cleanup
     - destroy

@@ -1,10 +1,16 @@
 ---
-# This is an example playbook to execute Ansible tests.
-
 - name: Verify
   hosts: all
-  gather_facts: false
+
   tasks:
-  - name: Example assertion
-    assert:
-      that: true
+    - name: Gather package facts
+      package_facts:
+        manager: auto
+
+    - name: Verify that abrt packages are absent
+      assert:
+        that: "'{{ item }}' not in ansible_facts.packages"
+      with_items:
+        - abrtd
+        - abrt-ccpp
+        - abrt-oops

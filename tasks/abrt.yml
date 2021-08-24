@@ -1,15 +1,15 @@
 # Disables the Automatic Bug Reporter for RHEL
 # Usage: ansible-playbook abrt.yml
 ---
-- name: 'Check if abrtd exists'
+- name: Check if abrtd exists
   stat:
-    path: '/usr/sbin/abrtd'
+    path: /usr/sbin/abrtd
   register: abrtd_exists
   when: ansible_distribution_major_version in abrt_rhel_versions
   tags:
     - abrt_config
 
-- name: 'Stop and Disable abrt processes'
+- name: Stop and disable abrt processes
   service:
     name: "{{ item }}"
     state: stopped

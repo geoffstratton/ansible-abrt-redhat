@@ -1,8 +1,7 @@
 ---
 galaxy_info:
   role_name: ansible-abrt-redhat
-  namespace: redhat
-  author: GeoffStratton.com
+  author: Geoff Stratton
   description: Red Hat abrt Role
   company: GeoffStratton.com    
   license: 
